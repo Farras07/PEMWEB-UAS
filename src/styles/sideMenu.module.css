@@ -1,0 +1,202 @@
+.iconButton{
+    margin-right: 15px;
+}
+
+.linkMenu{
+    width: 100%;
+    padding: 10px 0px 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    align-items: center;
+}
+
+.linkMenu:hover{
+    background-color: #e8e7e7;
+    box-shadow: 0 2px 5px #cfcfcf;
+    color: black;
+}
+
+.linkMenuFocus1{
+    background-color: #cfcfcf;
+    box-shadow: 0 2px 5px #cfcfcf;
+    color: black;
+}
+
+.linkMenuFocus2{
+    background-color: #cfcfcf;
+    box-shadow: 0 2px 5px #cfcfcf;
+    color: black;
+}
+
+.linkMenuFocus3{
+    background-color: #cfcfcf;
+    box-shadow: 0 2px 5px #cfcfcf;
+    color: black;
+}
+
+.container {
+    width: 30%;
+    height: 100vh;
+    padding: 0px 90px 0px 60px;
+}
+
+.ul{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+    flex-direction: column;
+}
+
+@media (min-width: 1200px) and (max-width: 1265px) {
+    
+    .container {
+        width: 25%;
+        padding: 0px 30px 0px 30px;
+    }
+
+}
+
+@media (min-width: 700px) and (max-width: 1199px) {
+    
+    .container{
+        background: #e3e3e3;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        gap: 0;
+        margin: 0;
+    }
+
+    .ul {
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-between;
+        padding: 10px 30px;
+    }
+
+    .linkMenu{
+        width: 100%;
+        padding: 10px 0px 10px 0px;
+        border-radius: 5px;
+        align-items: center;
+        color: #5b5b5b;
+    }
+
+    .iconButton {
+        display: none;
+    }
+
+    .linkMenu span {
+        font-size: 14px;
+    }
+
+    .linkMenu:hover {
+        background-color: transparent;
+        box-shadow: none;
+        color: black;
+    }
+
+    .linkMenuFocus1, .linkMenuFocus2, .linkMenuFocus3{
+        background-color: transparent;
+        box-shadow: none;
+        color: black;
+    }
+    
+}
+
+@media (min-width: 500px) and (max-width: 699px) {
+
+    .container{
+        background: #e3e3e3;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        gap: 0;
+        margin: 0;
+    }
+
+    .ul {
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-between;
+        padding: 10px 16px;
+    }
+
+    .linkMenu{
+        width: 100%;
+        padding: 10px 0px 10px 0px;
+        border-radius: 5px;
+        align-items: center;
+        color: #5b5b5b;
+    }
+
+    .iconButton {
+        display: none;
+    }
+
+    .linkMenu span {
+        font-size: 14px;
+    }
+
+    .linkMenu:hover {
+        background-color: transparent;
+        box-shadow: none;
+        color: black;
+    }
+
+    .linkMenuFocus1, .linkMenuFocus2, .linkMenuFocus3{
+        background-color: transparent;
+        box-shadow: none;
+        color: black;
+    }
+
+}
+
+@media (min-width: 200px) and (max-width: 499px) {
+
+    .container{
+        background: #e3e3e3;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        gap: 0;
+        margin: 0;
+    }
+
+    .ul {
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-between;
+        padding: 10px 16px;
+    }
+
+    .linkMenu{
+        width: 100%;
+        padding: 10px 0px 10px 0px;
+        border-radius: 5px;
+        align-items: center;
+        color: #5b5b5b;
+    }
+
+    .iconButton {
+        display: none;
+    }
+
+    .linkMenu span {
+        font-size: 12px;
+    }
+
+    .linkMenu:hover {
+        background-color: transparent;
+        box-shadow: none;
+        color: black;
+    }
+
+    .linkMenuFocus1, .linkMenuFocus2, .linkMenuFocus3{
+        background-color: transparent;
+        box-shadow: none;
+        color: black;
+    }
+
+}

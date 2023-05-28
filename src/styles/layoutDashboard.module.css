@@ -1,0 +1,83 @@
+.overflowControl {
+    overflow-x:hidden !important;
+    margin : 0 auto;
+}
+.main{
+    width: 100%;
+    padding-top: 30px;
+    background: #f9f9f9;
+}
+
+.contentContainer{
+    width: 70%;
+    padding: 0px 60px 0px 0px;
+}
+
+.contentContainerRes {
+    width: 70%;
+    padding: 0px 60px 0px 0px;
+}
+
+@media (min-width: 1200px) and (max-width: 1265px) {
+    
+    .contentContainer {
+        width: 80%;
+        padding: 10px 30px;
+    }
+    .contentContainerRes {
+        width: 80%;
+        padding: 10px 30px;
+    }
+
+}
+
+@media (min-width: 700px) and (max-width: 1199px) {
+    
+    .main {
+        flex-direction: column;
+        padding: 0px;
+    }
+    .contentContainer{
+        width: 100%;
+        padding: 10px 30px;
+    }
+    .contentContainerRes {
+        width: 100%;
+        padding: 10px 30px;
+    }
+
+}
+
+@media (min-width: 500px) and (max-width: 699px) {
+    
+    .main {
+        flex-direction: column;
+        padding: 0px;
+    }
+    .contentContainer{
+        width: 100%;
+        padding: 10px 16px;
+    }
+    .contentContainerRes{
+        width: 100%;
+        padding: 10px 16px;
+    }
+
+}
+
+@media (min-width: 200px) and (max-width: 499px) {
+
+    .main {
+        flex-direction: column;
+        padding: 0px;
+    }
+    .contentContainer{
+        width: 100%;
+        padding: 10px 16px;
+    }
+    .contentContainerRes{
+        width: 100%;
+        padding: 10px 16px;
+    }
+
+}
