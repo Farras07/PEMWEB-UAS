@@ -1,0 +1,39 @@
+.jumbotronContainer{
+    position: relative;
+    height: 100vh;
+    background-image: url(../../public/pic2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: -20px;
+
+}
+.tagline{
+    position: absolute;
+    left: 2%;
+    text-align: center;
+}
+.h1{
+    color: white;
+    font-size: 2.5rem;
+}
+.shop{
+    position: absolute;
+    right: 5%;
+}
+.shop h4{
+    font-size: 1.5em;
+}
+.shopButton{
+    margin-top: 1.4rem;
+    background-color: black;
+    width: 100%;
+    color:white;
+    height: 3rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    cursor:pointer
+}
