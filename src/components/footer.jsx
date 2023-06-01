@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../styles/footer.module.css'
 export default function Footer() {
   return (
-    <footer className={`${styles.footer} d-flex justify-content-between`}>
+    <footer className={`${styles.footer} d-flex justify-content-between mt-4`}>
         <article className={styles.col}>
             <p>VISIT OUR</p>
             <h5>SITE</h5>
