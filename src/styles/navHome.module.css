@@ -5,7 +5,7 @@
     /* background-color: #6073aa; */
     width: 100%;
     height: 15vh;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: .85em;
     box-sizing: border-box;
     top: 0;
@@ -20,7 +20,7 @@
     width: 70%;
 }
 .rightNav{
-    width: 8%;
+    width: 15%;
 }
 .search{
     cursor: pointer;
@@ -39,4 +39,7 @@
     position: relative;
     top: .4rem;
     right: .6rem;
+}
+.containerAdmin{
+    cursor: pointer;
 }

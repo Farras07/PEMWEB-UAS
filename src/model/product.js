@@ -18,12 +18,16 @@ const productSchema = new mongoose.Schema({
         type: String,
         required:true
     },
+    productType:{
+        type: String,
+        required:true
+    },
     processingTime:{
         type: String,
         required:true
     },
     sizeAvailable:{
-        type: String,
+        type: [String],
         required:true
     }
 })
