@@ -33,5 +33,128 @@
   border-radius: 2px;
   padding-bottom: .5rem;
   border-bottom: 2px solid black;
+}
+.cover{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: black;
+  opacity: .7;
+  display: none;
+  transition: 5s;
+}
+.closeButton{
+  padding: .1rem .5rem;
+  background-color: rgb(218, 218, 218);
+  border-radius: 1px;
+  height: fit-content;
+  z-index: 99999999;
+  position: fixed;
+  top: 14%;
+  right: 24%;
+
+}
+.closeButton:hover{
+  background-color: rgb(170, 170, 170);
+  cursor: pointer;
+}
+.container{
+  position: fixed;
+  z-index: 9999;
+  left: 27%;
+  margin-top: 12vh;
+  padding: 1rem;
+  width: 50%;
+  box-sizing: border-box;
+  border-radius: 13px;
+  color: whitesmoke;
+  box-shadow: 0 2px 4px rgb(129, 122, 122);
+  background: linear-gradient(to bottom right, #000000, #bfb7b7)
+}
+.header{
+  width: 100%;
+  position: relative;
+}
+.logo{
+  position: absolute;
+}
+.itemsDetail{
+  font-size: 2rem;
+  margin-top: 4rem;
+}
+.itemsImage{
+  margin-right: 1rem;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid rgb(253, 253, 253);
+}
+.orderButton{
+  background-color: rgb(0, 0, 0);
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+.container{
+  position: fixed;
+  z-index: 9999;
+  left: 27%;
+  margin-top: 12vh;
+  width: 50%;
+  box-sizing: border-box;
+  border-radius: 13px;
+  color: whitesmoke;
+  box-shadow: 0 2px 4px rgb(129, 122, 122);
+  background: linear-gradient(to bottom right, #000000, #bfb7b7)
+}
+.header{
+  width: 100%;
+  position: relative;
+}
+.logo{
+  position: absolute;
+}
+.itemsDetail h3{
+  font-size: 1rem;
+}
+.itemsImage{
+  height: 100%;
+  width: 40%;
+  height: fit-content;
+  border-radius: 8px;
+  border: none;
+  border-right: 2px solid rgb(253, 253, 253);
+}
+.itemsDesc{
+  width: 60%;
+  padding-top: .4rem;
+}
+.itemsDescPart{
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 2px solid rgb(253, 253, 253);
+  border-radius: 8px;
+}
+.orderButton{
+  font-size: 1rem;
+  background-color: rgb(0, 0, 0);
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+.orderSection{
+  padding: 1rem;
+}
+.orderQuantity label{
+
+  font-size: 1.2rem;
+}
+.orderQuantity input{
+  text-align: center;
   
+  border: none;
 }

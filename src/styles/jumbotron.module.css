@@ -1,7 +1,7 @@
 .jumbotronContainer{
     position: relative;
     height: 100vh;
-    background-image: url(../../public/pic2.jpg);
+    background-image: url(../../public/icons/pic2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;

@@ -1,0 +1,18 @@
+.container{
+    margin-top: 20vh;
+    margin-bottom: 2rem;
+    padding: 0 1.5rem;
+}
+.trailLink p{
+    font-size: .8rem;
+}
+.title{
+    border-bottom: 1.6px solid black;
+}
+.filterCon{
+    background-color: aqua;
+    height: 3rem;
+}
+.productContainer{
+    padding: 2rem 0 ;
+}
