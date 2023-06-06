@@ -7,13 +7,14 @@ import Jumbotron from '@/components/jumbotron'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import connect from '../db/db'
-import Product from '../model/product'
+// import connect from '../db/db'
+// import Product from '../model/product'
 // import Detail from '../components/productDetails'
 import Layout from '../layout/layout'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home({products}) {
+  console.log(products)
   const [itemShow,setItemShow] = useState('')
   const [numberItem,setNumberItem] = useState(0)
   const [subTotal,setSubTotal] = useState(0)
@@ -27,11 +28,6 @@ export default function Home({products}) {
     slidesToScroll: 1,
     autoplaySpeed:3000,
     autoplay:true
-  }
-  const detailHandler=(product)=>{
-    setToggleDetail(true)
-    setItemShow(product)
-    hideCover()
   }
   const hideCover=() =>{
     if(!toggleDetail){
@@ -132,7 +128,7 @@ export default function Home({products}) {
                 if(i<4){
                   return(
                     <>
-                      <Link href={`/catalog/${(product.category === 'Summer'? 'summer' : 'winter')}/product/${product._id}`} className={`${styles.items}`} key={product._id} onClick={()=>detailHandler(product,toggleDetail)}>
+                      <Link href={`/catalog/${(product.category === 'Summer'? 'summer' : 'winter')}/${product._id}`} className={`${styles.items}`} key={product._id}>
                         <figure><Image src={product.image} alt='items' width={140} height={140}/></figure>
                         <figcaption>{product.productName}</figcaption>
                         <p>Rp {product.price}</p>
@@ -150,26 +146,60 @@ export default function Home({products}) {
     </>
   )
 }
-export const getServerSideProps =async()=>{
-  try{
-    console.log('CONNECTING TO MONGO')
-    await connect()
-    console.log('CONNECTED TO MONGO')
+export const getServerSideProps = async () => {
+  try {
+    const res = await fetch('http://localhost:3000/api/product');
+    const data = await res.json(); // Parse the response as JSON
 
-    console.log('FETCHING DOCUMENT')
-    const product = await Product.find()
-    console.log('DOCUMENT FETCHED')
+    return {
+      props: {
+        products: data, // Use the parsed data
+      },
+    };
+  } catch (e) {
+    return {
+      notFound: true,
+    };
+  }
+};
+// export const newArrival = async () => {
+//   try {
+//     const res = await fetch('http://localhost:3000/api/product');
+//     const data = await res.json(); 
+//     const new = data.sort
 
-    return{
-      props:{
-        products: JSON.parse(JSON.stringify(product))
-      }
-    }
-}
-catch(e){
-    console.log(e)
-    return{
-      notFound:true
-    }
-}
-}
+//     return {
+//       props: {
+//         products: data, // Use the parsed data
+//       },
+//     };
+//   } catch (e) {
+//     return {
+//       notFound: true,
+//     };
+//   }
+// };
+
+// export const getServerSideProps =async()=>{
+//   try{
+//     console.log('CONNECTING TO MONGO')
+//     await connect()
+//     console.log('CONNECTED TO MONGO')
+
+//     console.log('FETCHING DOCUMENT')
+//     const product = await Product.find()
+//     console.log('DOCUMENT FETCHED')
+
+//     return{
+//       props:{
+//         products: JSON.parse(JSON.stringify(product))
+//       }
+//     }
+// }
+// catch(e){
+//     console.log(e)
+//     return{
+//       notFound:true
+//     }
+// }
+// }

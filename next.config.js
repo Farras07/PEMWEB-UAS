@@ -5,6 +5,15 @@ const nextConfig = {
 
   },
   reactStrictMode: true,
+  // reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        source: '/login',
+        destination: '/auth/login.js'
+      }
+    ]
+  }
 }
 
 module.exports = nextConfig

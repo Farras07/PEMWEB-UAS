@@ -11,7 +11,7 @@ export default function Jumbotron() {
         </article>
         <article className={`${styles.shop}`}>
             <h4>Summer Collection</h4>
-            <Link href='#'className={`${styles.shopButton}`}>Shop Now!</Link>
+            <Link href='/catalog/summer'className={`${styles.shopButton}`}>Shop Now!</Link>
         </article>
     </section>
   )

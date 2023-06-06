@@ -1,0 +1,50 @@
+.container{
+    margin-top: 13vh;
+}
+.contentDetail{
+    width: 100%;
+}
+.leftPanel{
+    width: 50%;
+}
+.rightPanel{
+    width: 50%;
+    padding:5.2rem 1rem 1rem 1rem;
+}
+.price{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
+
+}
+.priceCon{
+    margin-top: 1rem;
+}
+.sizeCon{
+    width: 30%;
+}
+.sizeButton{
+    border: 2px solid black;
+    cursor: pointer;
+    width: 3rem;
+    height: 1.8rem;
+}
+.orderButton{
+    margin-top: 3rem;
+    background-color: black;
+    font-size: .7rem;
+    height: 3rem;
+    color: white;
+}
+.sizeButton:hover{
+    background-color: rgb(159, 158, 158);
+}
+.orderQuantity label{
+    color: black;
+    font-size: 1.2rem;
+}
+.orderQuantity input{
+    margin: 2rem 0 1rem;
+    text-align: center;
+    border: 2px solid black;
+    width: 4rem;
+}
