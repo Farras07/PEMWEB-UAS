@@ -32,19 +32,22 @@
     margin-top: 3rem;
     background-color: black;
     font-size: .7rem;
+    cursor: pointer;
     height: 3rem;
     color: white;
 }
 .sizeButton:hover{
-    background-color: rgb(159, 158, 158);
+    background-color: rgb(182, 182, 182);
+}
+.orderQuantity{
+    margin-top: 1rem;
 }
 .orderQuantity label{
     color: black;
-    font-size: 1.2rem;
 }
 .orderQuantity input{
-    margin: 2rem 0 1rem;
+    margin: 1rem  0;
+    width: 5rem;
     text-align: center;
     border: 2px solid black;
-    width: 4rem;
 }

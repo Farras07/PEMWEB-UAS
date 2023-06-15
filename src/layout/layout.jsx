@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Header from '../components/navHome';
 import Footer from '../components/footer';
 
-export default function Layout({ page, children, Items}) {
+export default function Layout({ page, children}) {
   return (
     <>
       <Head>
@@ -12,7 +12,7 @@ export default function Layout({ page, children, Items}) {
       </Head>
 
       <div>
-        <Header page={page} numberItem={Items} />
+        <Header page={page} />
         <main>
             {children}
         </main>
