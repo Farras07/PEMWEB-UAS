@@ -1,6 +1,6 @@
 import { React, useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
-import Layout from '../../../layout/layoutDetail';
+import Layout from '../../../layout/layout';
 import styles from '../../../styles/productDetail.module.css';
 import { ToastContainer } from 'react-toastify'
 import { toast } from 'react-toastify'
@@ -9,9 +9,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function ProductDetail({ product }) {
-  const [choseSize, setChoseSize] = useState(null);
+  const [choseSize, setChoseSize] = useState(false);
+  const [addItems,setAddItems] = useState(0)
   const refs = useRef([]);
   const refQuantity = useRef(null);
+  const addOrderSuccess = ()=>{
+    toast.success('Berhasil Menambahkan Item Ke Cart',{
+      position:toast.POSITION.TOP_CENTER,
+      theme:'dark',
+      autoClose:1500,
+    })
+  }
   const handleFailSendOrder=()=>{
     toast.warning('Anda Belum Mengisi Size atau Quantity',{
       position:toast.POSITION.TOP_CENTER,
@@ -19,39 +27,38 @@ export default function ProductDetail({ product }) {
       autoClose:1500,
     })
   }
-  const addHandler=(name,price,size,quantity)=>{
-    if(size !== null || quantity !== ''){
+  const addHandler=(productId,productName,price,refs,quantity,image)=>{
+    if(refs[0].value !== "" && refs[1].value !== "" && refs[2].value !== "" && refs[3].value !== "" && refs[4].value !== "" && quantity !== ""){
       if(window.localStorage.getItem('order') === null){
         window.localStorage.setItem('order',JSON.stringify([]))
         console.log('hei')
       }
       const dataLocal = JSON.parse(window.localStorage.getItem('order'))
       const orderData = {
-        name,
+        productId,
+        productName,
         price,
-        size,
-        quantity
+        quantity,
+        image,
+        size:{
+          height: refs[0].value,
+          neck: refs[1].value,
+          chest: refs[2].value,
+          waist: refs[3].value,
+          arm: refs[4].value
+        }
       }
       dataLocal.push(orderData)
       window.localStorage.setItem('order',JSON.stringify(dataLocal))
+      setAddItems(addItems+1)
+      addOrderSuccess()
     }
     else{
       handleFailSendOrder()
     }
   }
-  useEffect(() => {
-    product.sizeAvailable.map((size, index) => {
-      if (size === choseSize) {
-        refs.current[index].style.background = 'rgb(182, 182, 182)';
-        
-      } else {
-        refs.current[index].style.background = 'none';
-      }
-    });
-  }, [choseSize, product.sizeAvailable]);
-
   return (
-    <Layout>
+    <Layout lengthChange={addItems}>
       <ToastContainer />
       <div className={`${styles.contentDetail} d-flex `} key={product._id}>
         <div className={`${styles.leftPanel} d-flex flex-column align-items-center`}>
@@ -69,21 +76,26 @@ export default function ProductDetail({ product }) {
             <div className='size'>
               <p>Size : </p>
               <div className={`${styles.sizeCon} d-flex justify-content-between`}>
-                {product.sizeAvailable.map((size, index) => {
-                  return (
-                    <button
-                      ref={(el) => (refs.current[index] = el)}
-                      className={`${styles.sizeButton} d-flex justify-content-center align-items-center`}
-                      key={size}
-                      value={size}
-                      onClick={() => {
-                        setChoseSize(size);
-                      }}
-                    >
-                      {size}
-                    </button>
-                  );
-                })}
+                <div className={`${styles.Size}`}>
+                  <label htmlFor="height">Height (cm)</label>
+                  <input ref={ref =>refs.current[0]=ref} type="number" id='height' name='height' required/>
+                </div>
+                <div className={`${styles.Size}`}>
+                  <label htmlFor="neck">Neck Size (cm)</label>
+                  <input ref={ref =>refs.current[1]=ref} type="number" id='neck' name='neck' required/>
+                </div>
+                <div className={`${styles.Size}`}>
+                  <label htmlFor="chest">Chest Size (cm)</label>
+                  <input ref={ref =>refs.current[2]=ref} type="number" id='chest' name='chest' required/>
+                </div>
+                <div className={`${styles.Size}`}>
+                  <label htmlFor="waist">Waist Size (cm)</label>
+                  <input ref={ref =>refs.current[3]=ref} type="number" id='waist' name='waist' required/>
+                </div>
+                <div className={`${styles.Size}`}>
+                  <label htmlFor="arm">Arm Length (cm)</label>
+                  <input ref={ref =>refs.current[4]=ref} type="number" id='arm' name='arm' required/>
+                </div>
               </div>
             </div>
             <div className={`${styles.orderQuantity} d-flex flex-column`}>
@@ -92,12 +104,13 @@ export default function ProductDetail({ product }) {
             </div>
             <div className={`${styles.orderButton} d-flex justify-content-center align-items-center`} onClick={()=>{
               const quantity = refQuantity.current.value
-              addHandler(product.productName,product.price,choseSize,quantity)
+              addHandler(product._id,product.productName,product.price,refs.current,quantity,product.image)
             }}>
               Add To Cart</div>
           </div>
         </div>
       </div>
+
     </Layout>
   );
 }

@@ -1,0 +1,65 @@
+.container{
+    margin-top: 8rem;
+    display: flex;
+}
+.leftPanel{
+    text-align: center;
+    padding: 0 1rem;
+    width: 50%;
+}
+.leftPanel h3{
+    margin-bottom: 2rem;
+}
+.rightPanel{
+    text-align: center;
+    width: 50%;
+}
+.product{
+    background-color: rgb(201, 201, 201);
+}
+.quantity{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image{
+}
+.sizeItem{
+    margin-right: .5rem;
+}
+.size{
+    padding: 0 .5rem;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.price{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+.top{
+    padding: .5rem 1rem;
+
+}
+.bottom{
+    border-top: 1px solid black;
+    padding: .5rem 0;
+}
+.inputQuantity{
+    text-align: center;
+}
+.checkoutButton{
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 3rem;
+    cursor: pointer;
+}
+.checkoutButton:hover{
+    background-color: rgb(53, 53, 53);
+}
