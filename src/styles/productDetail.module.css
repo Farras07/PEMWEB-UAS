@@ -1,0 +1,52 @@
+.contentDetail{
+    margin-top: 13vh;
+}
+.contentDetail{
+    width: 100%;
+}
+.leftPanel{
+    width: 50%;
+}
+.rightPanel{
+    width: 50%;
+    padding:5.2rem 1rem 1rem 1rem;
+}
+.price{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
+
+}
+.priceCon{
+    margin-top: 1rem;
+}
+.sizeCon{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.Size{
+    width: 40%;
+}
+.orderButton{
+    margin-top: 3rem;
+    background-color: black;
+    font-size: .7rem;
+    cursor: pointer;
+    height: 3rem;
+    color: white;
+}
+.sizeButton:hover{
+    background-color: rgb(182, 182, 182);
+}
+.orderQuantity{
+    margin-top: 1rem;
+}
+.orderQuantity label{
+    color: black;
+}
+.orderQuantity input{
+    margin: 1rem  0;
+    width: 5rem;
+    text-align: center;
+    border: 2px solid black;
+}

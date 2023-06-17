@@ -1,130 +1,113 @@
-import Head from 'next/head'
+import {React,useState,useRef} from 'react'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
-import Nav from '../components/navHome'
 import Jumbotron from '@/components/jumbotron'
 import Slider from 'react-slick';
-import footer from '../components/footer'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Footer from '../components/footer'
-const inter = Inter({ subsets: ['latin'] })
+import Layout from '../layout/layout'
 
-export default function Home() {
+const inter = Inter({ subsets: ['latin'] })
+export default function Home({products}) {
+  console.log(products)
+  const ref = useRef(null)
   return (
     <>
-      <Nav />
-      <Jumbotron />
-      <NewArrival />
-      <Catalog />
-      
-      <Footer />
+      <Layout page='home'>
+          <div className={`${styles.cover}`} ref={ref}></div>
+          <Jumbotron />
+          <div id='new' className={`${styles.containerNew} d-flex mt-5`}>
+          <div className={`${styles.rightContainer}`}>
+            <figure>
+              <Image src='/products/sweater.svg' alt='sweater' width={600} height={800} className={`${styles.sweater}`}></Image>
+            </figure>
+          </div>
+          <div className={`${styles.leftContainer} d-flex flex-column justify-content-center align-items-center text-center`}>
+            <h3>NEW ARRIVAL</h3>  
+            <p>Introducing our latest collection of cozy sweaters, designed to keep you warm and stylish this season. 
+              Our new arrivals feature an exquisite blend of comfort, quality, and contemporary fashion.</p>
+              <div className="button">
+                <Link href='#' className={`${styles.newButton}`}>Shop Now!</Link>
+              </div>
+          </div>
+        </div>
+        <section id='catalog' className='text-end px-2 mt-3'>
+          <div className={`${styles.catalog}`}>
+            <section className={`${styles.slide} d-flex justify-content-around align-items-end`}>
+              {products.map((product,i) =>{
+                if(i<4){
+                  return(
+                      <Link href={`/catalog/${(product.category === 'Summer'? 'summer' : 'winter')}/${product._id}`} className={`${styles.items}`} key={product._id}>
+                        <figure><Image src={product.image} alt='items' width={140} height={140}/></figure>
+                        <figcaption>{product.productName}</figcaption>
+                        <p>Rp {product.price}</p>
+                      </Link>
+                  )
+                }
+              })}
+            </section>
+          </div>
+        </section>
+      </Layout>
     </>
   )
 }
+export const getServerSideProps = async () => {
+  try {
+    const res = await fetch('http://localhost:3000/api/product');
+    const data = await res.json(); // Parse the response as JSON
 
-const Catalog =()=>{
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
+    return {
+      props: {
+        products: data, // Use the parsed data
+      },
+    };
+  } catch (e) {
+    return {
+      notFound: true,
+    };
   }
-  return(
-    <div className='text-end px-2 mt-3'>
-      <Link href='#' className='text-end'>Go to Catalog{'>>'}</Link>
-      <Slider {...settings} className={`${styles.catalog}`}>
-        <section className={`${styles.slide} d-flex justify-content-around align-items-end`}>
-          <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-          <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-          <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-          <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-        </section>
-        <section className={`${styles.slide} d-flex justify-content-around align-items-end`}>
-          <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-          <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-          <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-          <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-        </section>
-        <section className={`${styles.slide} d-flex justify-content-around align-items-end`}>
-        <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-          <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-          <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-          <article className={`${styles.items}`}>
-            <figure><Image src='/grey.svg' alt='items' width={140} height={140}/></figure>
-            <figcaption>Valvata</figcaption>
-            <p>Rp.300.000</p>
-          </article>
-        </section>
-      </Slider>
-    
-    </div>
-  )
-}
-const NewArrival=()=>{
-  return(
-    <div className={`${styles.containerNew} d-flex mt-5`}>
-      <div className={`${styles.rightContainer}`}>
-        <figure>
-          <Image src='/sweater.jpg' alt='sweater' width={600} height={800} className={`${styles.sweater}`}></Image>
-        </figure>
+};
+// export const newArrival = async () => {
+//   try {
+//     const res = await fetch('http://localhost:3000/api/product');
+//     const data = await res.json(); 
+//     const new = data.sort
 
-      </div>
-      <div className={`${styles.leftContainer} d-flex flex-column justify-content-center align-items-center text-center`}>
-        <h3>NEW ARRIVAL</h3>  
-        <p>Introducing our latest collection of cozy sweaters, designed to keep you warm and stylish this season. 
-          Our new arrivals feature an exquisite blend of comfort, quality, and contemporary fashion.</p>
-          <div className="button">
-            <Link href='#' className={`${styles.newButton}`}>Shop Now!</Link>
-          </div>
-      </div>
-    </div>
-  )
-}
+//     return {
+//       props: {
+//         products: data, // Use the parsed data
+//       },
+//     };
+//   } catch (e) {
+//     return {
+//       notFound: true,
+//     };
+//   }
+// };
+
+// export const getServerSideProps =async()=>{
+//   try{
+//     console.log('CONNECTING TO MONGO')
+//     await connect()
+//     console.log('CONNECTED TO MONGO')
+
+//     console.log('FETCHING DOCUMENT')
+//     const product = await Product.find()
+//     console.log('DOCUMENT FETCHED')
+
+//     return{
+//       props:{
+//         products: JSON.parse(JSON.stringify(product))
+//       }
+//     }
+// }
+// catch(e){
+//     console.log(e)
+//     return{
+//       notFound:true
+//     }
+// }
+// }
