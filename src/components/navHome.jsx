@@ -3,13 +3,11 @@ import Image from 'next/image';
 import styles from '../styles/navHome.module.css';
 import Link from 'next/link';
 
-export default function NavHome({ page }) {
-  const DisplayItemsNumber =()=>{
-    useEffect(()=>{
-      console.log('lololo')
-    },[JSON.parse(window.localStorage.getItem('order')).length])
-  }
-  const [items, setItems] = useState(0);
+export default function NavHome({ page,length }) {
+  const [itemsLength,setItemsLength]=useState(length)
+  useEffect(()=>{
+    setItemsLength(length)
+  },[length])
   return (
     <>
       <nav className={`${styles.nav} d-flex align-items-center justify-content-between`}>
@@ -34,7 +32,7 @@ export default function NavHome({ page }) {
             </article>
             <Link href='/cart' className={`${styles.containerCart} d-flex align-items-center`}>
                 <Image src='/icons/cart.svg' alt='cart' width={25} height={25} className={`${styles.cart}`}></Image>
-                <div className={`${styles.itemsNumber} d-flex align-items-center justify-content-center`}>{DisplayItemsNumber}</div>
+                <div className={`${styles.itemsNumber} d-flex align-items-center justify-content-center`}>{itemsLength}</div>
             </Link>
         </section>
       </nav>

@@ -1,4 +1,4 @@
-.container{
+.contentDetail{
     margin-top: 13vh;
 }
 .contentDetail{
@@ -20,13 +20,12 @@
     margin-top: 1rem;
 }
 .sizeCon{
-    width: 30%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
-.sizeButton{
-    border: 2px solid black;
-    cursor: pointer;
-    width: 3rem;
-    height: 1.8rem;
+.Size{
+    width: 40%;
 }
 .orderButton{
     margin-top: 3rem;
