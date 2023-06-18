@@ -1,12 +1,23 @@
 import {React,useRef} from 'react'
 import styles from '../styles/addProduct.module.css'
 import Link from 'next/link'
+import { ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 export default function AddProduct() {
     const refName = useRef(null)
     const refPrice = useRef(null)
     const refCategory = useRef(null)
     const refType = useRef(null)
     const refTime = useRef(null)
+    const addSuccess = ()=>{
+        toast.success('Berhasil Menambahkan Product',{
+          position:toast.POSITION.TOP_CENTER,
+          theme:'dark',
+          autoClose:1500,
+        })
+      }
     const add =()=>{
         if(refName.current.value !== "" && refPrice.current.value !== "" &&
          refCategory.current.value !== "" && refType.current.value !== "" && refTime.current.value !== ""){
@@ -26,6 +37,7 @@ export default function AddProduct() {
             }
             saveProduct(productData)
             console.log('berhasil')
+            addSuccess()
          }
     }
     const saveProduct = async(items)=>{
@@ -39,6 +51,7 @@ export default function AddProduct() {
       }
   return (
     <section className={`${styles.container}`}>
+        <ToastContainer/>
         <h1 className={`${styles.h1}`}>Add Order</h1>
         <div className={`${styles.conButton}`}>
             <Link href='/dashboard/products' className={`${styles.linkMenu}`}>List Menu</Link>

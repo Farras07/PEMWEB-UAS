@@ -2,9 +2,11 @@ import { React, useState, useRef } from 'react'
 import { useRouter } from "next/router";
 import styles from '../styles/dashboardContent.module.css'
 import Image from 'next/image'
+import LineChart from '../components/lineChart.js'
 
-export default function DashboardContent(data) {
-    const orderData = data.data
+
+export default function DashboardContent({data}) {
+    const orderData = data
     const totalOrder = orderData.length
 
     const filteredOrderIncoming = orderData.filter((order)=>order.ProcessStatus !== 'Waiting Confirmation')
@@ -12,6 +14,36 @@ export default function DashboardContent(data) {
 
     const filteredOrderCompleted = orderData.filter((order)=>order.ProcessStatus !== 'Completed')
     const completedOrder = filteredOrderCompleted.length
+
+    const monthList = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","November","Desember"]
+    const [dataChart,setDataChart] = useState({
+        labels:handlerDataChart(monthList,orderData).map(data=>data.month) ,
+        datasets: [{
+            label : "Total Order",
+            data:handlerDataChart(monthList,orderData).map(data=>data.numberOrder),
+            
+            backgroundColor:[
+                "#5cb85c",
+                "#f0ad4e",
+                "#d9534f",
+                "#5bc0de"
+            ],
+            borderColor:"#0275d8",
+            options: {
+                maintainAspectRatio:false,
+                interaction: {
+                  mode: 'nearest',
+                  axis: 'x',
+                  intersect: false
+                }
+            },
+            scales: {
+                y:{
+                    beginAtZero:true,
+                }
+            }
+        }]
+    })
     return (
 
 
@@ -81,6 +113,7 @@ export default function DashboardContent(data) {
                     <div className={`${styles.chartBox} d-flex align-items-center`}>
                         <div className={`${styles.chartContainer} d-flex`}>
                             <div className={`${styles.chartContainerBody} d-flex align-items-center`}>
+                                <LineChart data={dataChart} width={200} className={`${styles.chartData}`}/> 
                             </div>
                         </div>
                     </div>
@@ -94,6 +127,81 @@ export default function DashboardContent(data) {
 
    
 }
+const handlerDataChart =(monthList,datas)=>{
+    const monthArray = []
+    for(let a = 0 ;a<datas.length;a++){
+        const monthData = new Date(datas[a].dateOrder)
+        const month = monthData.getMonth()
+        const monthName = monthList[month]
+        monthArray.push(monthName)
+    }
+    const monthObject = [
+        {
+            month:monthList[0],
+            numberOrder:monthArray.filter(data=>data === monthList[0]).length
+
+        },
+        {
+            month:monthList[1],
+            numberOrder:monthArray.filter(data=>data === monthList[1]).length
+
+        },
+        {
+            month:monthList[2],
+            numberOrder:monthArray.filter(data=>data === monthList[2]).length
+
+        },
+        {
+            month:monthList[3],
+            numberOrder:monthArray.filter(data=>data === monthList[3]).length
+
+        },
+        {
+            month:monthList[4],
+            numberOrder:monthArray.filter(data=>data === monthList[4]).length
+        },
+        {
+            month:monthList[5],
+            numberOrder:monthArray.filter(data=>data === monthList[5]).length
+
+        },
+        {
+            month:monthList[6],
+            numberOrder:monthArray.filter(data=>data === monthList[6]).length
+
+        },
+        {
+            month:monthList[7],
+            numberOrder:monthArray.filter(data=>data === monthList[7]).length
+
+        },
+        {
+            month:monthList[8],
+            numberOrder:monthArray.filter(data=>data === monthList[8]).length
+
+        },
+        {
+            month:monthList[9],
+            numberOrder:monthArray.filter(data=>data === monthList[9]).length
+
+        },
+        {
+            month:monthList[10],
+            numberOrder:monthArray.filter(data=>data === monthList[10]).length
+
+        },
+        {
+            month:monthList[11],
+            numberOrder:monthArray.filter(data=>data === monthList[11]).length
+
+        }
+    ]
+    return monthObject
+}
+
+
+
+
 
 
 

@@ -30,6 +30,16 @@ export default async function handler(req, res) {
             res.json({e})
         }
     }
+    else if(req.method === 'PUT'){
+        await connect()
+        
+        const updatePrice = await Product.findOneAndUpdate(
+            { _id: req.query.id }, // Filter by ID
+            { $set: {price: req.body.price} }, // Update the ispinned field to false
+            { new: true } // Return the updated document
+        );
+        res.status(200).json({ success: true, data:updatePrice })
+    }
   }
 //   export default async function handler(req, res) {
 //     if(req.method === 'POST'){

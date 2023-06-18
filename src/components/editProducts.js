@@ -1,11 +1,44 @@
-import {React,useRef} from 'react'
+import {React,useRef,useState} from 'react'
 import styles from '../styles/editProduct.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 export default function EditProducts({data}) {
+    const [productData,setProductData]= useState(data)
     const refPrice = useRef(null)
+    console.log(data)
+    const updateSuccess = ()=>{
+        toast.success('Berhasil Update Harga',{
+          position:toast.POSITION.TOP_CENTER,
+          theme:'dark',
+          autoClose:1500,
+        })
+      }
+    const priceHandler = (event) => {
+        const updatedProductData = { ...productData, price: event.target.value };
+        setProductData(updatedProductData);
+    }
+    const updateProduct=async(id)=>{
+        console.log(productData.price)
+        const price = {
+            price: productData.price
+        }
+        await fetch(`/api/product/${id}`, {
+            method: "PUT",
+            headers:{
+              "Content-Type" : "application/json",
+            },
+            body: JSON.stringify(price)
+          })
+          console.log('berhasil')
+          updateSuccess()
+    }
   return (
     <section className={`${styles.container}`}>
+        <ToastContainer />
         <h1 className={`${styles.h1}`}>Edit Order</h1>
         <div className={`${styles.conButton}`}>
             <Link href='/dashboard/products' className={`${styles.linkMenu}`}>List Menu</Link>
@@ -13,16 +46,16 @@ export default function EditProducts({data}) {
         <section className={`${styles.commentSection} pt-3 `}>
             <div className={`${styles.image}`}>
                 <div className={`${styles.mainDesc} pt-1`}>
-                    <Image src={data.image} alt={data.productName} width={250} height={320}/>
-                    <h4>{data.productName}</h4>
-                    <h4>{data.category}</h4>
-                    <h4>Process Time : {data.processingTime}</h4>
+                    <Image src={productData.image} alt={productData.productName} width={250} height={320}/>
+                    <h4>{productData.productName}</h4>
+                    <h4>{productData.category}</h4>
+                    <h4>Process Time : {productData.processingTime}</h4>
                     <div className={`${styles.price} input-group mb-3`}>
                         <span className="input-group-text" id="basic-addon2">IDR</span>
-                        <input ref={refPrice} type="number" className="form-control" placeholder='0' aria-label="Price" aria-describedby="basic-addon2"/>
+                        <input ref={refPrice} type="number" className="form-control" value={productData.price} aria-label="Price" aria-describedby="basic-addon2" onChange={()=>priceHandler(event)}/>
                     </div>
                     <div className={`${styles.submit} input-group mb-3`}>
-                    <input onClick={add} type="submit" className="form-control" aria-describedby="basic-addon2"/>
+                        <input onClick={()=>updateProduct(productData._id)} type="submit" className="form-control" aria-describedby="basic-addon2"/>
                     </div>
                 </div>
             </div>

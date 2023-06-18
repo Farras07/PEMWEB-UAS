@@ -24,4 +24,13 @@ export default async function handler(req, res) {
         const credit = await Credit.find()
         res.json(credit)
     }
+    else if(req.method === 'PUT'){
+        await connect()
+        const updateSaldo = await Credit.findOneAndUpdate(
+            { _id: req.query.id }, // Filter by ID
+            { $set: {processStatus: req.body.processStatus} }, // Update the ispinned field to false
+            { new: true } // Return the updated document
+          );
+        res.status(200).json({ success: true, data:updateStatus })
+    }
   }

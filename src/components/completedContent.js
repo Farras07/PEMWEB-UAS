@@ -2,8 +2,14 @@ import React from 'react'
 import styles from '../styles/orderContent.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 export default function CompletedContent({data}) {
+    const router = useRouter()
     console.log(data)
+    const clickedLink=(id)=>{
+        console.log(id)
+        router.push(`/dashboard/orders/${id}`)
+    }
   return (
     <section className={`${styles.container}`}>
         <h1 className={`${styles.h1}`}>Completed Orders</h1>
@@ -15,7 +21,7 @@ export default function CompletedContent({data}) {
         <section className={`${styles.commentSection}`}>
         {data.map((data, i) => (data.processStatus === 'Order Completed' ? (
             <article key={i} className={`${styles.cardComment}`}>
-                <div className={`${styles.contCommentProfile} d-flex justify-content-center`}>
+                <div className={`${styles.contCommentProfile} d-flex justify-content-center`} onClick={()=>clickedLink(data._id)}>
                 <div className={`${styles.commentProfile}`}>
                     <h3 className={`${styles.h3} text-white text-center`}>{data.nameCustomer}</h3>
                     <p className='text-white'>{data.email}</p>
