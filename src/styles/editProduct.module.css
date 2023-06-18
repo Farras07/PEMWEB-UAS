@@ -9,8 +9,9 @@
     overflow-y: scroll;
     height: 73vh;
 }
+
 .image{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -18,6 +19,9 @@
 }
 .mainDesc{
     border-bottom: 1px solid black;
+}
+.dataimg{
+    border-radius: 20px;
 }
 .h5{
     border-bottom: 1px solid black;
@@ -73,6 +77,8 @@
     margin-bottom: 0;
 }
 
+
+
 .pComment{
     text-align: justify;
     font-size: .8em;
@@ -85,10 +91,10 @@
 .conButton{
     width: 100%;
     height: 20%;
-    display: flex;
-    justify-content: space-around;
+    /* display: flex;
+    justify-content: space-around; */
     gap: 1rem;
-    margin: .6rem 0;
+    margin: 1.5rem 0;
 }
 .linkMenu{
     background-color: #c3c3c3;
@@ -140,6 +146,7 @@
     width: 60%;
 }
 
+
 @media (min-width: 200px) and (max-width: 720px) {
 
     .filterButton {
@@ -182,4 +189,16 @@
     }
     
 
+}
+.proname{
+    font-size: 25px;
+    margin: 20px 0px 5px 0px;
+}
+.procat{
+    font-size: 15px;
+    font-style: italic;
+}
+.process{
+    margin-top: 15px;
+    font-size: 15px;
 }

@@ -8,9 +8,9 @@ export default function CompletedContent({data}) {
     <section className={`${styles.container}`}>
         <h1 className={`${styles.h1}`}>Completed Orders</h1>
         <div className={`${styles.conButton}`}>
-            <Link href='/dashboard/orders' className={`${styles.linkMenu}`}>Incoming Orders</Link>
-            <Link href='/dashboard/onProgressOrders' className={`${styles.linkMenu}`}>On Progress Orders</Link>
-            <Link href='/dashboard/refusedOrder' className={`${styles.linkMenu}`}>Refused Orders</Link>
+            <Link href='/dashboard/orders' className={`${styles.linkMenu} bg-success`}>Incoming Orders</Link>
+            <Link href='/dashboard/onProgressOrders' className={`${styles.linkMenu2}`}>On Progress Orders</Link>
+            <Link href='/dashboard/refusedOrder' className={`${styles.linkMenu3}`}>Refused Orders</Link>
         </div>
         <section className={`${styles.commentSection}`}>
         {data.map((data, i) => (data.processStatus === 'Order Completed' ? (

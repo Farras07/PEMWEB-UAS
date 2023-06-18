@@ -1,11 +1,13 @@
 .container{
     margin-top: 8rem;
+    margin-bottom: 0rem;
     display: flex;
 }
 .leftPanel{
     text-align: center;
     padding: 0 1rem;
     width: 50%;
+    
 }
 .leftPanel h3{
     margin-bottom: 2rem;
@@ -13,9 +15,14 @@
 .rightPanel{
     text-align: center;
     width: 50%;
+    /* border: 0.5px solid black; */
+    border-left: 1px solid black;
+    margin-bottom: 1rem;
 }
 .product{
     /* background-color: rgb(201, 201, 201); */
+    /* border-top: 0.5px solid black; */
+    /* border-left: 1px solid black; */
 }
 .quantity{
     width: 10%;
@@ -47,7 +54,7 @@
 
 }
 .bottom{
-    border-top: 1px solid black;
+    /* border-top: 0.5px solid black; */
     padding: .5rem 0;
 }
 .inputQuantity{
@@ -65,4 +72,7 @@
 }
 .checkoutButton:hover{
     background-color: rgb(53, 53, 53);
+}
+.cartimg{
+    border-radius: 10px;
 }

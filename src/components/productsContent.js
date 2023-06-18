@@ -24,8 +24,8 @@ export default function ProductsContent({data}) {
   return (
     <section className={`${styles.container}`}>
         <h1 className={`${styles.h1}`}>Products</h1>
-        <div className={`${styles.conButton}`}>
-            <Link href='/dashboard/products/add' className={`${styles.linkMenu}`}>Add Product</Link>
+        <div className={`${styles.conButton2}`}>
+            <Link href='/dashboard/products/add' className={`${styles.linkMenu} bg-success`}>Add Product</Link>
         </div>
         <section className={`${styles.commentSection}`}>
         {orderData.map((data, i) => (

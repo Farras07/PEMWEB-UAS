@@ -13,11 +13,8 @@ export default function DashboardContent(data) {
     const filteredOrderCompleted = orderData.filter((order)=>order.ProcessStatus !== 'Completed')
     const completedOrder = filteredOrderCompleted.length
     return (
-
-
-
+        
         <article className={`${styles.container}`}>
-
             <h1 className={`${styles.h1}`}>Dashboard</h1>
             <div className={`${styles.dataCardContainer} d-flex justify-content-between align-items-center`}>
 
@@ -27,7 +24,7 @@ export default function DashboardContent(data) {
                         <p className={`${styles.p}`}>{totalOrder}</p>
                     </div>
                     <span className={`${styles.logo}`}>
-                        <Image alt='image' src='/icons/mail.svg' width={50} height={50} />
+                        <Image alt='image' src='/icons/totalorder.svg' width={50} height={50} />
                     </span>
                 </div>
 
@@ -37,7 +34,7 @@ export default function DashboardContent(data) {
                         <p className={`${styles.p}`}>{incomingOrder}</p>
                     </div>
                     <span className={`${styles.logo}`}>
-                        <Image alt='image' src='/icons/mail.svg' width={50} height={50} />
+                        <Image alt='image' src='/icons/add.svg' width={50} height={50} />
                     </span>
                 </div>
 
@@ -47,7 +44,7 @@ export default function DashboardContent(data) {
                         <p className={`${styles.p}`}>0</p>
                     </div>
                     <span className={`${styles.logo}`}>
-                        <Image alt='image' src='/icons/mail.svg' width={50} height={50} />
+                        <Image alt='image' src='/icons/order1.svg' width={50} height={50} />
                     </span>
                 </div>
 

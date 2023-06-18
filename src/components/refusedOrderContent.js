@@ -14,9 +14,9 @@ export default function OnProgressContent({data}) {
     <section className={`${styles.container}`}>
         <h1 className={`${styles.h1}`}>Refused Orders</h1>
         <div className={`${styles.conButton}`}>
-            <Link href='/dashboard/orders' className={`${styles.linkMenu}`}>Incoming Order</Link>
-            <Link href='/dashboard/onProgressOrders' className={`${styles.linkMenu}`}>On Progress Orders</Link>
-            <Link href='/dashboard/completedOrders' className={`${styles.linkMenu}`}>Completed Orders</Link>
+            <Link href='/dashboard/orders' className={`${styles.linkMenu} bg-success`}>Incoming Order</Link>
+            <Link href='/dashboard/onProgressOrders' className={`${styles.linkMenu2}`}>On Progress Orders</Link>
+            <Link href='/dashboard/completedOrders' className={`${styles.linkMenu3}`}>Completed Orders</Link>
         </div>
         <section className={`${styles.commentSection}`}>
         {orderData.map((orderData, i) => (orderData.processStatus === 'Order Refused' ? (

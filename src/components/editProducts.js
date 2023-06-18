@@ -13,16 +13,16 @@ export default function EditProducts({data}) {
         <section className={`${styles.commentSection} pt-3 `}>
             <div className={`${styles.image}`}>
                 <div className={`${styles.mainDesc} pt-1`}>
-                    <Image src={data.image} alt={data.productName} width={250} height={320}/>
-                    <h4>{data.productName}</h4>
-                    <h4>{data.category}</h4>
-                    <h4>Process Time : {data.processingTime}</h4>
+                    <Image src={data.image} alt={data.productName} width={250} height={320} className={`${styles.dataimg}`}/>
+                    <h4 className={`${styles.proname}`}>{data.productName} </h4>
+                    <h4 className={`${styles.procat}`}>{data.category}</h4>
+                    <h4 className={`${styles.process}`}>Process Time : {data.processingTime}</h4>
                     <div className={`${styles.price} input-group mb-3`}>
                         <span className="input-group-text" id="basic-addon2">IDR</span>
                         <input ref={refPrice} type="number" className="form-control" placeholder='0' aria-label="Price" aria-describedby="basic-addon2"/>
                     </div>
                     <div className={`${styles.submit} input-group mb-3`}>
-                    <input onClick={add} type="submit" className="form-control" aria-describedby="basic-addon2"/>
+                    <input  type="submit" className="form-control bg-success" aria-describedby="basic-addon2"/>
                     </div>
                 </div>
             </div>

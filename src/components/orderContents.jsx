@@ -44,9 +44,9 @@ export default function OrderContents({data}) {
     <section className={`${styles.container}`}>
         <h1 className={`${styles.h1}`}>Incoming Orders</h1>
         <div className={`${styles.conButton}`}>
-            <Link href='/dashboard/onProgressOrders' className={`${styles.linkMenu}`}>On Progress Orders</Link>
-            <Link href='/dashboard/completedOrders' className={`${styles.linkMenu}`}>Completed Orders</Link>
-            <Link href='/dashboard/refusedOrder' className={`${styles.linkMenu}`}>Refused Orders</Link>
+            <Link href='/dashboard/onProgressOrders' className={`${styles.linkMenu} bg-success`}>On Progress Orders</Link>
+            <Link href='/dashboard/completedOrders' className={`${styles.linkMenu2}`}>Completed Orders</Link>
+            <Link href='/dashboard/refusedOrder' className={`${styles.linkMenu3}`}>Refused Orders</Link>
         </div>
         <section className={`${styles.commentSection}`}>
         {orderData.map((orderData, i) => (orderData.processStatus === 'Waiting Confirmation' ? (
