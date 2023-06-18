@@ -7,6 +7,10 @@
     padding: 1rem .8rem;
 }
 .colItem:hover{
-    color: black;
-    box-shadow: inset 0 0 2px black;
+    /* color: black; */
+    /* box-shadow: inset 0 0 0 2px; */
+    transform: scale(1.1);
+}
+.productimage{
+    border-radius: 20px;
 }

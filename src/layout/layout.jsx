@@ -38,4 +38,3 @@ export default function Layout({ page, children, lengthChange }) {
     </>
   );
 }
->>>>>>> 7c46fac637c986dad36d7d18c5389a33228ee8cc

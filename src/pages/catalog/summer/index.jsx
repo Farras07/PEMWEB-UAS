@@ -12,7 +12,7 @@ export default function Index({products}) {
              if(product.category === 'Summer'){
               return(
                 <Link href={`http://localhost:3000/catalog/summer/${product._id}`} className={`${styles.colItem} d-flex flex-column justify-content-center align-items-center`} key={product._id}>
-                  <figure><Image src={product.image} alt='items' width={250} height={400}/></figure>
+                  <figure><Image src={product.image} alt='items' width={250} height={350} className={`${styles.productimage}`}/></figure>
                   <figcaption>{product.productName}</figcaption>
                   <p>Rp {product.price}</p>
                 </Link>

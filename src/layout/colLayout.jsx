@@ -13,9 +13,6 @@ export default function ColLayout({children, page}) {
                     <div className={`${styles.title} d-flex justify-content-center`}>
                         <h3>PRODUCT</h3>
                     </div>
-                    <div className={`${styles.filterCon} d-flex align-items-center`}>
-                        filter
-                    </div>
                     <article className={`${styles.productContainer} d-flex flex-wrap justify-content-around`}>
                         {children}
                     </article>
