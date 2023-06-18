@@ -6,7 +6,7 @@ export default function Footer() {
         <article className={styles.col}>
             <p>VISIT OUR</p>
             <h5>SITE</h5>
-            <h6>Jl. Rungkut Madya No. 1, Surabaya</h6>
+            <h6>Jl. Raya Pulorejo, Mojokerto</h6>
         </article>
         <article className={styles.col}>
             <p>REGULAR</p>
@@ -16,7 +16,7 @@ export default function Footer() {
         <article className={styles.col}>
             <p>CALL US</p>
             <h5>PHONE NUMBER</h5>
-            <h6>(0623) 18706369</h6>
+            <h6>+6281345323089</h6>
         </article>
     </footer>
   )
