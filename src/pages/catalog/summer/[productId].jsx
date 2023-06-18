@@ -27,7 +27,7 @@ export default function ProductDetail({ product }) {
       autoClose:1500,
     })
   }
-  const addHandler=(productId,productName,price,refs,quantity,image)=>{
+  const addHandler=(productName,price,refs,quantity,image)=>{
     if(refs[0].value !== "" && refs[1].value !== "" && refs[2].value !== "" && refs[3].value !== "" && refs[4].value !== "" && quantity !== ""){
       if(window.localStorage.getItem('order') === null){
         window.localStorage.setItem('order',JSON.stringify([]))
@@ -35,7 +35,6 @@ export default function ProductDetail({ product }) {
       }
       const dataLocal = JSON.parse(window.localStorage.getItem('order'))
       const orderData = {
-        productId,
         productName,
         price,
         quantity,
@@ -104,7 +103,7 @@ export default function ProductDetail({ product }) {
             </div>
             <div className={`${styles.orderButton} d-flex justify-content-center align-items-center`} onClick={()=>{
               const quantity = refQuantity.current.value
-              addHandler(product._id,product.productName,product.price,refs.current,quantity,product.image)
+              addHandler(product.productName,product.price,refs.current,quantity,product.image)
             }}>
               Add To Cart</div>
           </div>

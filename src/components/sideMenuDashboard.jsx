@@ -15,11 +15,11 @@ export default function SideMenuDashboard({ focus }) {
           </Link>
         </li>
         <li>
-          <Link href="/dashboard/responsePage" className={`${styles.linkMenu} ${(foc === 2 ? styles.linkMenuFocus2 : '')} d-flex`} ><span>Responses</span>
+          <Link href="/dashboard/orders" className={`${styles.linkMenu} ${(foc === 2 ? styles.linkMenuFocus2 : '')} d-flex`} ><span>Orders</span>
           </Link>
         </li>
         <li>
-          <Link href="/dashboard/pinnedResponsePage" className={`${styles.linkMenu} ${(foc === 3 ? styles.linkMenuFocus3 : '')} d-flex`}><span>Pinned Responses</span>
+          <Link href="/dashboard/products" className={`${styles.linkMenu} ${(foc === 3 ? styles.linkMenuFocus3 : '')} d-flex`}><span>Products</span>
           </Link>
         </li>
       </ul>
