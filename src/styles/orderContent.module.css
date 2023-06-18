@@ -90,6 +90,12 @@
     padding: .7rem 1.4rem;
     border-radius: .6rem;
 }
+.linkMenu1{
+    background-color: #9c9c9c;
+    padding: .7rem 1.4rem;
+    border-radius: .6rem;
+    color: #f1f1f1;
+}
 
 .linkMenu2{
     color: #f1f1f1;

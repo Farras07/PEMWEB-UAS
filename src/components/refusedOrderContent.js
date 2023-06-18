@@ -3,6 +3,8 @@ import styles from '../styles/orderContent.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
+import Buttons from './orderButton'
+
 export default function OnProgressContent({data}) {
     const router = useRouter()
     const [orderData,setOrderData] = useState(data)
@@ -13,11 +15,7 @@ export default function OnProgressContent({data}) {
   return (
     <section className={`${styles.container}`}>
         <h1 className={`${styles.h1}`}>Refused Orders</h1>
-        <div className={`${styles.conButton}`}>
-            <Link href='/dashboard/orders' className={`${styles.linkMenu} bg-success`}>Incoming Order</Link>
-            <Link href='/dashboard/onProgressOrders' className={`${styles.linkMenu2}`}>On Progress Orders</Link>
-            <Link href='/dashboard/completedOrders' className={`${styles.linkMenu3}`}>Completed Orders</Link>
-        </div>
+        <Buttons foc={4}/>
         <section className={`${styles.commentSection}`}>
         {orderData.map((orderData, i) => (orderData.processStatus === 'Order Refused' ? (
             <article key={i} className={`${styles.cardComment}`} >

@@ -63,8 +63,8 @@ function NavDashboard() {
   async function logOutHandler(e) {
 
     e.preventDefault()
-    cookie.remove('token')
-    router.push('/')
+    // cookie.remove('token')
+    router.push('/login')
 
   }
 
@@ -102,7 +102,7 @@ function NavDashboard() {
         </div>
 
         <div ref={refButton} className={`${styles.logoutContainer} text-light`}>
-          <Link className={styles.logoutText} onClick={logOutHandler} href='/'>Logout</Link>
+          <Link className={styles.logoutText} onClick={logOutHandler} href='/login'>Logout</Link>
         </div>
 
       </div>

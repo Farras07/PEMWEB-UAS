@@ -30,7 +30,7 @@ export default function Home({products}) {
               Make sure to keep coming back to visit us as we regularly update our collection, so you won`t miss out on the latest must-have fashion items.
               Customize your size now and stay one step ahead in the fashion world!</p>
               <div className="button">
-                <Link href='#' className={`${styles.newButton}`}>Shop Now!</Link>
+                <Link href='catalog/summer/648ed3aae13827085ed4da3d' className={`${styles.newButton}`}>Shop Now!</Link>
               </div>
           </div>
         </div>

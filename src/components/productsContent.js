@@ -3,10 +3,20 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {useRouter} from 'next/router'
 import styles from '../styles/orderContent.module.css'
+import { ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function ProductsContent({data}) {
     const router = useRouter()
     const [orderData,setOrderData] = useState(data)
+    const deleteSuccess = ()=>{
+        toast.success('Berhasil Menghapus Product',{
+          position:toast.POSITION.TOP_CENTER,
+          theme:'dark',
+          autoClose:1500,
+        })
+      }
     const deleteProduct = async(id) =>{
         await fetch(`/api/product/${id}`, {
             method: "DELETE",
@@ -17,12 +27,14 @@ export default function ProductsContent({data}) {
           console.log('berhasil')
           const updatedData = orderData.filter((data)=>data._id !== id)
           setOrderData(updatedData)
+          deleteSuccess()
     }
     const edit=(id)=>{
         router.push(`/dashboard/products/${id}`)
     }
   return (
     <section className={`${styles.container}`}>
+        <ToastContainer/>
         <h1 className={`${styles.h1}`}>Products</h1>
         <div className={`${styles.conButton2}`}>
             <Link href='/dashboard/products/add' className={`${styles.linkMenu} bg-success`}>Add Product</Link>

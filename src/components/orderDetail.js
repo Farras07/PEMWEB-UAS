@@ -30,14 +30,6 @@ export default function OrderDetail({data}) {
                         <p className={`${styles.pComment}`}>Quantity : {item.quantity}</p>
                     </div>
                 </div>
-
-                <div className={`${styles.actionBtn}`}>
-
-                <span onClick={() => pinnedHandler(item._id, token)} className={`${styles.unpinButton}`}><Image alt='unpin' src='/unpin.svg' width={25} height={25} /></span>
-                <span onClick={() => deleteHandler(item._id, token)} className={`${styles.deleteButton}`}><Image alt='delete' src='/bin.svg' width={25} height={25} /></span>
-
-                </div>
-
             </article>
         ) : null))}
         </section>

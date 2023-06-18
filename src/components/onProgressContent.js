@@ -3,9 +3,21 @@ import styles from '../styles/orderContent.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
+import { ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import Button from './orderButton'
+
 export default function OnProgressContent({data}) {
     const router = useRouter()
     const [orderData,setOrderData] = useState(data)
+    const updateSuccess = ()=>{
+        toast.success('Berhasil Update Status Order',{
+          position:toast.POSITION.TOP_CENTER,
+          theme:'dark',
+          autoClose:1500,
+        })
+      }
     const clickedLink=(id)=>{
         console.log(id)
         router.push(`/dashboard/orders/${id}`)
@@ -24,15 +36,13 @@ export default function OnProgressContent({data}) {
           console.log('berhasil')
           const updatedData = orderData.map((data) =>data._id === id ? { ...data, processStatus: 'Order Completed' } : data)
           setOrderData(updatedData)
+          updateSuccess()
     }
   return (
     <section className={`${styles.container}`}>
+        <ToastContainer/>
         <h1 className={`${styles.h1}`}>On Progress Orders</h1>
-        <div className={`${styles.conButton}`}>
-            <Link href='/dashboard/orders' className={`${styles.linkMenu} bg-success`}>Incoming Order</Link>
-            <Link href='/dashboard/completedOrders' className={`${styles.linkMenu2}`}>Completed Orders</Link>
-            <Link href='/dashboard/refusedOrder' className={`${styles.linkMenu3}`}>Refused Orders</Link>
-        </div>
+        <Button foc={2}/>
         <section className={`${styles.commentSection}`}>
         {orderData.map((orderData, i) => (orderData.processStatus === 'Order On Progress' ? (
             <article key={i} className={`${styles.cardComment}`} >

@@ -3,10 +3,28 @@ import styles from '../styles/orderContent.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
+import { ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
+import Buttons from './orderButton' 
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function OrderContents({data}) {
     const router = useRouter()
     const [orderData,setOrderData] = useState(data)
+    const updateSuccess = ()=>{
+        toast.success('Berhasil Update Status Order',{
+          position:toast.POSITION.TOP_CENTER,
+          theme:'dark',
+          autoClose:1500,
+        })
+      }
+    const refusedOrder =()=>{
+        toast.success('Berhasil Menolak Order',{
+            position:toast.POSITION.TOP_CENTER,
+            theme:'dark',
+            autoClose:1500,
+          })
+    }
     const clickedLink=(id)=>{
         console.log(id)
         router.push(`/dashboard/orders/${id}`)
@@ -25,6 +43,7 @@ export default function OrderContents({data}) {
           console.log('berhasil')
           const updatedData = orderData.map((data) =>data._id === id ? { ...data, processStatus: 'Order On Progress' } : data)
           setOrderData(updatedData)
+          updateSuccess()
     }
     const refuseOrder =async(id)=>{
         const status = {
@@ -39,15 +58,13 @@ export default function OrderContents({data}) {
           })
           const updatedData = orderData.map((data) =>data._id === id ? { ...data, processStatus: 'Order Refused' } : data)
           setOrderData(updatedData)
+          refusedOrder()
     }
   return (
     <section className={`${styles.container}`}>
+        <ToastContainer/>
         <h1 className={`${styles.h1}`}>Incoming Orders</h1>
-        <div className={`${styles.conButton}`}>
-            <Link href='/dashboard/onProgressOrders' className={`${styles.linkMenu} bg-success`}>On Progress Orders</Link>
-            <Link href='/dashboard/completedOrders' className={`${styles.linkMenu2}`}>Completed Orders</Link>
-            <Link href='/dashboard/refusedOrder' className={`${styles.linkMenu3}`}>Refused Orders</Link>
-        </div>
+        <Buttons foc={1}/>
         <section className={`${styles.commentSection}`}>
         {orderData.map((orderData, i) => (orderData.processStatus === 'Waiting Confirmation' ? (
             <article key={i} className={`${styles.cardComment}`} >
