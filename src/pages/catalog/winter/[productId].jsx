@@ -64,7 +64,7 @@ export default function ProductDetail({ product }) {
       <ToastContainer />
       <div className={`${styles.contentDetail} d-flex `} key={product._id}>
         <div className={`${styles.leftPanel} d-flex flex-column align-items-center`}>
-          <Image src={product.image} alt='item' width={500} height={800} />
+          <Image src={product.image} alt='item' width={400} height={560} className={`${styles.prdimg}`}/>
         </div>
         <div className={`${styles.rightPanel}`}>
           <div className={`${styles.productDesc} d-flex flex-column justify-content-between `}>

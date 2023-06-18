@@ -22,6 +22,7 @@
     background-repeat: no-repeat;
     margin-right: 2rem;
     background-size: cover;
+    border-radius: 20px;
 }
 .winter{
     background: url('../../public/cover/winter.jpg');
@@ -29,6 +30,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin-left: 2rem;
+    border-radius: 20px;
 }
 .link{
     width: 100%;

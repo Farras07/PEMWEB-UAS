@@ -16,10 +16,7 @@ export default function Nav(props) {
     <nav className={`${styles.navBarDashboard} d-flex`}>
 
       <div className={`${styles.logoContainer} `}>
-        <div className={`${styles.divNavText}`}>
-          <h1 className={`${styles.navH1}`}>HMPS Keperawatan Anestesiologi</h1>
-          <span className={`${styles.navP}`}>Universitas Muhammaddiyah Purwokerto</span>
-        </div>
+        
 
       </div>
 

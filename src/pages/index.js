@@ -18,16 +18,17 @@ export default function Home({products}) {
       <Layout page='home'>
           <div className={`${styles.cover}`} ref={ref}></div>
           <Jumbotron />
-          <div id='new' className={`${styles.containerNew} d-flex mt-5`}>
+          <div id='new' className={`${styles.containerNew} d-flex`}>
           <div className={`${styles.rightContainer}`}>
             <figure>
-              <Image src='/products/sweater.svg' alt='sweater' width={600} height={800} className={`${styles.sweater}`}></Image>
+              <Image src='/products/arrival.avif' alt='sweater' width={600} height={800} className={`${styles.sweater}`}></Image>
             </figure>
           </div>
           <div className={`${styles.leftContainer} d-flex flex-column justify-content-center align-items-center text-center`}>
             <h3>NEW ARRIVAL</h3>  
-            <p>Introducing our latest collection of cozy sweaters, designed to keep you warm and stylish this season. 
-              Our new arrivals feature an exquisite blend of comfort, quality, and contemporary fashion.</p>
+            <p>Be the first to wear the latest fashion trends with the perfect fit for you.
+              Make sure to keep coming back to visit us as we regularly update our collection, so you won't miss out on the latest must-have fashion items.
+              Customize your size now and stay one step ahead in the fashion world!</p>
               <div className="button">
                 <Link href='#' className={`${styles.newButton}`}>Shop Now!</Link>
               </div>
@@ -35,12 +36,12 @@ export default function Home({products}) {
         </div>
         <section id='catalog' className='text-end px-2 mt-3'>
           <div className={`${styles.catalog}`}>
-            <section className={`${styles.slide} d-flex justify-content-around align-items-end`}>
+            <section className={`${styles.slide} d-flex justify-content-around align-items-end `}>
               {products.map((product,i) =>{
                 if(i<4){
                   return(
                       <Link href={`/catalog/${(product.category === 'Summer'? 'summer' : 'winter')}/${product._id}`} className={`${styles.items}`} key={product._id}>
-                        <figure><Image src={product.image} alt='items' width={140} height={140}/></figure>
+                        <figure><Image src={product.image} alt='items' width={150} height={210} className={`${styles.prdimg}`}/></figure>
                         <figcaption>{product.productName}</figcaption>
                         <p>Rp {product.price}</p>
                       </Link>
