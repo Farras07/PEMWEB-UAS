@@ -8,8 +8,6 @@ import { useRouter } from 'next/router'
 export default function Nav(props) {
 
   const [ham, setHam] = useState(false)
-  console.log(props.page)
-
  
   return (
 

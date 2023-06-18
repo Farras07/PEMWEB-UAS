@@ -1,5 +1,5 @@
 import connect from '../../../db/db'
-import Credit from '../../../model/creditCard'
+import User from '../../../model/user'
 /**
  * @param {import('next').NextApiRequest} req
  * @param {import('next').NextApiResponse} res
@@ -10,10 +10,11 @@ export default async function handler(req, res) {
             console.log('CONNECTING TO MONGO')
             await connect()
             console.log('CONNECTED TO MONGO')
+        
             console.log('CREATING DOCUMENT')
-            const credit = await Credit.create(req.body)
+            const user = await User.create(req.body)
             console.log('CREATED DOCUMENT')
-            res.json({credit})
+            res.json({user})
         }
         catch(e){
             console.log(e)
@@ -21,7 +22,7 @@ export default async function handler(req, res) {
         }
     }else if(req.method ==='GET'){
         await connect()
-        const credit = await Credit.find()
-        res.json(credit)
+        const user = await User.find()
+        res.json(user)
     }
   }

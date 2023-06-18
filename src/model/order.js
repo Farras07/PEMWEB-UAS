@@ -1,34 +1,64 @@
 import mongoose, { Schema,model,models } from "mongoose";
 
 const orderSchema = new mongoose.Schema({
-    productId:{
+    nameCustomer:{
         type:String,
         required: true,
     },
-    productName:{
+    email:{
         type:String,
         required: true,
     },
-    price: {
-        type:Number,
-        required:true
+    address:{
+        type:String,
+        required: true,
     },
-    quantity: {
-        type:Number,
-        required:true
-    },
-    image:{
-        type: String,
-        required:true
-    },
-    size:{
-        type: Object,
-        required:true
+    zipCode:{
+        type:String,
+        required: true,
     },
     processStatus:{
         type: String,
         required:true
     },
+    dateOrder:{
+        type: Date,
+        required: true
+    },
+    dateRequest :{
+        type: String,
+        required:true
+    },
+    items:[
+        {
+            productName:{
+                type: String,
+                require: true,
+            },
+            price : {
+                type: Number,
+                require: true
+            },
+            quantity:{
+                type: Number,
+                require: true
+            },
+            image:{
+                type:String,
+                require:true
+            },
+            size: {
+                type: Object,
+                require: true
+            },
+            status:{
+                type: String,
+                require: true
+            }
+            
+        }
+    ]
+
 })
 
 const order = models.order || model('order',orderSchema)
