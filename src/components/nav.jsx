@@ -14,7 +14,11 @@ export default function Nav(props) {
     <nav className={`${styles.navBarDashboard} d-flex`}>
 
       <div className={`${styles.logoContainer} `}>
-        
+        <div className={`${styles.divNavText}`}>
+        <article className={`${styles.logo}`}>
+                <Image src='/icons/logo.svg' alt= 'logo' width={110} height={110}/>
+            </article>
+        </div>
 
       </div>
 

@@ -167,7 +167,7 @@ export default function Index({credit}) {
                     <section className={`${styles.top} mb-3 d-flex`}>
                       <article className={`${styles.image}`}>
                         <figure>
-                          <Image src={item.image} width={70} height={100} alt={item.productName}/>
+                          <Image src={item.image} width={70} height={100} alt={item.productName} className={`${styles.cartimg}`}/>
                         </figure>
                         <figcaption>{item.productName}</figcaption>
                       </article>

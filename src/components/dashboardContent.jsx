@@ -45,11 +45,8 @@ export default function DashboardContent({data}) {
         }]
     })
     return (
-
-
-
+        
         <article className={`${styles.container}`}>
-
             <h1 className={`${styles.h1}`}>Dashboard</h1>
             <div className={`${styles.dataCardContainer} d-flex justify-content-between align-items-center`}>
 
@@ -59,7 +56,7 @@ export default function DashboardContent({data}) {
                         <p className={`${styles.p}`}>{totalOrder}</p>
                     </div>
                     <span className={`${styles.logo}`}>
-                        <Image alt='image' src='/icons/mail.svg' width={50} height={50} />
+                        <Image alt='image' src='/icons/totalorder.svg' width={50} height={50} />
                     </span>
                 </div>
 
@@ -69,7 +66,7 @@ export default function DashboardContent({data}) {
                         <p className={`${styles.p}`}>{incomingOrder}</p>
                     </div>
                     <span className={`${styles.logo}`}>
-                        <Image alt='image' src='/icons/mail.svg' width={50} height={50} />
+                        <Image alt='image' src='/icons/add.svg' width={50} height={50} />
                     </span>
                 </div>
 
@@ -79,7 +76,7 @@ export default function DashboardContent({data}) {
                         <p className={`${styles.p}`}>0</p>
                     </div>
                     <span className={`${styles.logo}`}>
-                        <Image alt='image' src='/icons/mail.svg' width={50} height={50} />
+                        <Image alt='image' src='/icons/order1.svg' width={50} height={50} />
                     </span>
                 </div>
 
@@ -89,7 +86,7 @@ export default function DashboardContent({data}) {
 
                 <div className={`${styles.headerChart} my-3 d-flex justify-content-between align-items-center`}>
 
-                    <h1 className={`${styles.h1} fw-bold`}>Response Chart</h1>
+                    <h1 className={`${styles.h1} fw-bold`}>Order Chart</h1>
                     
                     {/* <div className={`${styles.filterButton} d-flex justify-content-evenly align-items-center`} onClick={() => handleFilter(isFilterShow)}>
                         <Image alt='image' src='filter.svg' width={20} height={20} />

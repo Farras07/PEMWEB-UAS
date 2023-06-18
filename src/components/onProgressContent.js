@@ -6,6 +6,7 @@ import {useRouter} from 'next/router'
 import { ToastContainer } from 'react-toastify'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Button from './orderButton'
 
 export default function OnProgressContent({data}) {
     const router = useRouter()
@@ -41,11 +42,7 @@ export default function OnProgressContent({data}) {
     <section className={`${styles.container}`}>
         <ToastContainer/>
         <h1 className={`${styles.h1}`}>On Progress Orders</h1>
-        <div className={`${styles.conButton}`}>
-            <Link href='/dashboard/orders' className={`${styles.linkMenu}`}>Incoming Order</Link>
-            <Link href='/dashboard/completedOrders' className={`${styles.linkMenu}`}>Completed Orders</Link>
-            <Link href='/dashboard/refusedOrder' className={`${styles.linkMenu}`}>Refused Orders</Link>
-        </div>
+        <Button foc={2}/>
         <section className={`${styles.commentSection}`}>
         {orderData.map((orderData, i) => (orderData.processStatus === 'Order On Progress' ? (
             <article key={i} className={`${styles.cardComment}`} >

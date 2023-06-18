@@ -24,12 +24,6 @@ export default function NavHome({ page,length }) {
             </article>
         </section>
         <section className={`${styles.rightNav} d-flex justify-content-around`}>
-            <article className={styles.containerSearch}>
-                <Image src='/icons/search.svg' alt='search' width={25} height={25} className={`${styles.search}`}></Image>
-            </article>
-            <article className={styles.containerAdmin}>
-                <Image src='/icons/admin.svg' alt='login' width={25} height={25} className={`${styles.admin}`}></Image>
-            </article>
             <Link href='/cart' className={`${styles.containerCart} d-flex align-items-center`}>
                 <Image src='/icons/cart.svg' alt='cart' width={25} height={25} className={`${styles.cart}`}></Image>
                 <div className={`${styles.itemsNumber} d-flex align-items-center justify-content-center`}>{itemsLength}</div>

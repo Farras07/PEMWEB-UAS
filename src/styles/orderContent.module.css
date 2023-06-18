@@ -72,15 +72,45 @@
     width: 100%;
     height: 20%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     gap: 1rem;
-    margin: .6rem 0;
+    margin: 1.5rem 0;
+}
+.conButton2{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: right;
+    gap: 1rem;
+    margin: 1.5rem 0;
 }
 .linkMenu{
+    color: #f1f1f1;
     background-color: #c3c3c3;
     padding: .7rem 1.4rem;
     border-radius: .6rem;
 }
+.linkMenu1{
+    background-color: #9c9c9c;
+    padding: .7rem 1.4rem;
+    border-radius: .6rem;
+    color: #f1f1f1;
+}
+
+.linkMenu2{
+    color: #f1f1f1;
+    background-color: #DCA552;
+    padding: .7rem 1.4rem;
+    border-radius: .6rem;
+}
+
+.linkMenu3{
+    color: #f1f1f1;
+    background-color: #991313;
+    padding: .7rem 1.4rem;
+    border-radius: .6rem;
+}
+
 
 .commentContainer{
     width: 80%;
@@ -158,5 +188,4 @@
         height: 25px;
     }
     
-
 }

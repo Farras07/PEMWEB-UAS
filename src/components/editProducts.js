@@ -39,23 +39,23 @@ export default function EditProducts({data}) {
   return (
     <section className={`${styles.container}`}>
         <ToastContainer />
-        <h1 className={`${styles.h1}`}>Edit Order</h1>
+        <h1 className={`${styles.h1}`}>Edit Product</h1>
         <div className={`${styles.conButton}`}>
             <Link href='/dashboard/products' className={`${styles.linkMenu}`}>List Menu</Link>
         </div>
         <section className={`${styles.commentSection} pt-3 `}>
             <div className={`${styles.image}`}>
                 <div className={`${styles.mainDesc} pt-1`}>
-                    <Image src={productData.image} alt={productData.productName} width={250} height={320}/>
-                    <h4>{productData.productName}</h4>
-                    <h4>{productData.category}</h4>
-                    <h4>Process Time : {productData.processingTime}</h4>
+                    <Image src={data.image} alt={data.productName} width={250} height={320} className={`${styles.dataimg}`}/>
+                    <h4 className={`${styles.proname}`}>{data.productName} </h4>
+                    <h4 className={`${styles.procat}`}>{data.category}</h4>
+                    <h4 className={`${styles.process}`}>Process Time : {data.processingTime}</h4>
                     <div className={`${styles.price} input-group mb-3`}>
                         <span className="input-group-text" id="basic-addon2">IDR</span>
                         <input ref={refPrice} type="number" className="form-control" value={productData.price} aria-label="Price" aria-describedby="basic-addon2" onChange={()=>priceHandler(event)}/>
                     </div>
                     <div className={`${styles.submit} input-group mb-3`}>
-                        <input onClick={()=>updateProduct(productData._id)} type="submit" className="form-control" aria-describedby="basic-addon2"/>
+                    <input onClick={updateProduct} type="submit" className="form-control" aria-describedby="basic-addon2"/>
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import {useRouter} from 'next/router'
 import { ToastContainer } from 'react-toastify'
 import { toast } from 'react-toastify'
+import Buttons from './orderButton' 
 import 'react-toastify/dist/ReactToastify.css'
 
 export default function OrderContents({data}) {
@@ -63,11 +64,7 @@ export default function OrderContents({data}) {
     <section className={`${styles.container}`}>
         <ToastContainer/>
         <h1 className={`${styles.h1}`}>Incoming Orders</h1>
-        <div className={`${styles.conButton}`}>
-            <Link href='/dashboard/onProgressOrders' className={`${styles.linkMenu}`}>On Progress Orders</Link>
-            <Link href='/dashboard/completedOrders' className={`${styles.linkMenu}`}>Completed Orders</Link>
-            <Link href='/dashboard/refusedOrder' className={`${styles.linkMenu}`}>Refused Orders</Link>
-        </div>
+        <Buttons foc={1}/>
         <section className={`${styles.commentSection}`}>
         {orderData.map((orderData, i) => (orderData.processStatus === 'Waiting Confirmation' ? (
             <article key={i} className={`${styles.cardComment}`} >

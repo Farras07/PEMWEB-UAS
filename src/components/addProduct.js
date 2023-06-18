@@ -52,7 +52,7 @@ export default function AddProduct() {
   return (
     <section className={`${styles.container}`}>
         <ToastContainer/>
-        <h1 className={`${styles.h1}`}>Add Order</h1>
+        <h1 className={`${styles.h1}`}>Add Product</h1>
         <div className={`${styles.conButton}`}>
             <Link href='/dashboard/products' className={`${styles.linkMenu}`}>List Menu</Link>
         </div>

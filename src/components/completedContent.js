@@ -3,6 +3,8 @@ import styles from '../styles/orderContent.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
+import Buttons from './orderButton'
+
 export default function CompletedContent({data}) {
     const router = useRouter()
     console.log(data)
@@ -13,11 +15,7 @@ export default function CompletedContent({data}) {
   return (
     <section className={`${styles.container}`}>
         <h1 className={`${styles.h1}`}>Completed Orders</h1>
-        <div className={`${styles.conButton}`}>
-            <Link href='/dashboard/orders' className={`${styles.linkMenu}`}>Incoming Orders</Link>
-            <Link href='/dashboard/onProgressOrders' className={`${styles.linkMenu}`}>On Progress Orders</Link>
-            <Link href='/dashboard/refusedOrder' className={`${styles.linkMenu}`}>Refused Orders</Link>
-        </div>
+        <Buttons foc={3}/>
         <section className={`${styles.commentSection}`}>
         {data.map((data, i) => (data.processStatus === 'Order Completed' ? (
             <article key={i} className={`${styles.cardComment}`}>
