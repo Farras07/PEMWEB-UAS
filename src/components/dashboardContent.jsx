@@ -5,11 +5,8 @@ import Image from 'next/image'
 
 export default function DashboardContent(props) {
     return (
-
-
-
+        
         <article className={`${styles.container}`}>
-
             <h1 className={`${styles.h1}`}>Dashboard</h1>
             <div className={`${styles.dataCardContainer} d-flex justify-content-between align-items-center`}>
 
