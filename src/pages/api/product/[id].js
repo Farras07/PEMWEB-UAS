@@ -19,6 +19,17 @@ export default async function handler(req, res) {
             res.json({e})
         }
     }
+    else if(req.method === 'DELETE'){
+        try{
+            await connect()
+            const deleteAspiration = await Product.deleteOne({_id: req.query.id})
+            res.status(200).json({ success: true, data:deleteAspiration })
+        }
+        catch(e){
+            console.log(e)
+            res.json({e})
+        }
+    }
   }
 //   export default async function handler(req, res) {
 //     if(req.method === 'POST'){

@@ -27,7 +27,7 @@ export default function Home({products}) {
           <div className={`${styles.leftContainer} d-flex flex-column justify-content-center align-items-center text-center`}>
             <h3>NEW ARRIVAL</h3>  
             <p>Be the first to wear the latest fashion trends with the perfect fit for you.
-              Make sure to keep coming back to visit us as we regularly update our collection, so you won't miss out on the latest must-have fashion items.
+              Make sure to keep coming back to visit us as we regularly update our collection, so you won`t miss out on the latest must-have fashion items.
               Customize your size now and stay one step ahead in the fashion world!</p>
               <div className="button">
                 <Link href='#' className={`${styles.newButton}`}>Shop Now!</Link>

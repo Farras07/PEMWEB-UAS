@@ -25,10 +25,6 @@ const productSchema = new mongoose.Schema({
     processingTime:{
         type: String,
         required:true
-    },
-    sizeAvailable:{
-        type: [String],
-        required:true
     }
 })
 
