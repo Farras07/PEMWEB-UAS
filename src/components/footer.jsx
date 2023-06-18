@@ -6,17 +6,17 @@ export default function Footer() {
         <article className={styles.col}>
             <p>VISIT OUR</p>
             <h5>SITE</h5>
-            <h6>JL.LOREM IPSUM,MOJOKERTO</h6>
+            <h6>Jl. Rungkut Madya No. 1, Surabaya</h6>
         </article>
         <article className={styles.col}>
             <p>REGULAR</p>
             <h5>HOURS</h5>
-            <h6>Mon - Sat | 10 - 6 • Sun | 12 - 5</h6>
+            <h6>Mon - Fri | 08.00 - 17.00</h6>
         </article>
         <article className={styles.col}>
             <p>CALL US</p>
             <h5>PHONE NUMBER</h5>
-            <h6>08xxxxxxxxx</h6>
+            <h6>(0623) 18706369</h6>
         </article>
     </footer>
   )

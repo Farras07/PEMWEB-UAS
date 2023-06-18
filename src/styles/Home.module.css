@@ -1,5 +1,6 @@
 .catalog{
   height: 50vh;
+  margin-top: 50px;
 }
 .slide{
   height: 50vh;
@@ -9,7 +10,6 @@
   padding: .5rem;
 }
 .items:hover{
-  border: 1px solid black;
   cursor: pointer;
 }
 .containerNew{
@@ -157,4 +157,12 @@
   text-align: center;
   
   border: none;
+}
+.prdimg{
+  border-radius: 20px;
+}
+.prdimg:hover{
+  /* color: black; */
+  /* box-shadow: inset 0 0 0 2px; */
+  transform: scale(1.1);
 }
