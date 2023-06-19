@@ -9,10 +9,10 @@ export default function DashboardContent({data}) {
     const orderData = data
     const totalOrder = orderData.length
 
-    const filteredOrderIncoming = orderData.filter((order)=>order.ProcessStatus !== 'Waiting Confirmation')
+    const filteredOrderIncoming = orderData.filter((order)=>order.processStatus == "Waiting Confirmation")
     const incomingOrder = filteredOrderIncoming.length
 
-    const filteredOrderCompleted = orderData.filter((order)=>order.ProcessStatus !== 'Completed')
+    const filteredOrderCompleted = orderData.filter((order)=>order.processStatus === "Order Completed")
     const completedOrder = filteredOrderCompleted.length
 
     const monthList = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","November","Desember"]
@@ -73,7 +73,7 @@ export default function DashboardContent({data}) {
                 <div className={`${styles.dataCardItems} border-bottom border-warning border-5`}>
                     <div>
                         <h3 className='fs-6 fw-bold'>Order Completed</h3>
-                        <p className={`${styles.p}`}>0</p>
+                        <p className={`${styles.p}`}>{completedOrder}</p>
                     </div>
                     <span className={`${styles.logo}`}>
                         <Image alt='image' src='/icons/order1.svg' width={50} height={50} />

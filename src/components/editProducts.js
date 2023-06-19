@@ -22,16 +22,13 @@ export default function EditProducts({data}) {
         setProductData(updatedProductData);
     }
     const updateProduct=async(id)=>{
-        console.log(productData.price)
-        const price = {
-            price: productData.price
-        }
+        
         await fetch(`/api/product/${id}`, {
             method: "PUT",
             headers:{
               "Content-Type" : "application/json",
             },
-            body: JSON.stringify(price)
+            body: JSON.stringify({price: productData.price})
           })
           console.log('berhasil')
           updateSuccess()
@@ -55,7 +52,7 @@ export default function EditProducts({data}) {
                         <input ref={refPrice} type="number" className="form-control" value={productData.price} aria-label="Price" aria-describedby="basic-addon2" onChange={()=>priceHandler(event)}/>
                     </div>
                     <div className={`${styles.submit} input-group mb-3`}>
-                    <input onClick={updateProduct} type="submit" className="form-control" aria-describedby="basic-addon2"/>
+                    <input onClick={()=>updateProduct(data._id)} type="submit" className="form-control" aria-describedby="basic-addon2"/>
                     </div>
                 </div>
             </div>

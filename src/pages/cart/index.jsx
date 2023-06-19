@@ -74,9 +74,9 @@ export default function Index({credit}) {
       window.localStorage.setItem('order',JSON.stringify(filteredItems))
     }
   }
-  const updateSaldo = async()=>{
+  // const updateSaldo = async()=>{
     
-  }
+  // }
   const saveOrder = async(items)=>{
     await fetch("/api/order", {
       method: "POST",
@@ -112,6 +112,9 @@ export default function Index({credit}) {
           items: updatedItems
         }
         saveOrder(orderData)
+        setItemsCart([])
+        setChangeCart([])
+        window.localStorage.setItem('order',JSON.stringify([]))
         addOrderSuccess()
       } else {
         handleFailSendOrder(2)

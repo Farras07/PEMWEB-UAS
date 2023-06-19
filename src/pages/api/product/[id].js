@@ -22,8 +22,8 @@ export default async function handler(req, res) {
     else if(req.method === 'DELETE'){
         try{
             await connect()
-            const deleteAspiration = await Product.deleteOne({_id: req.query.id})
-            res.status(200).json({ success: true, data:deleteAspiration })
+            const deleteOrder = await Product.deleteOne({_id: req.query.id})
+            res.status(200).json({ success: true, data:deleteOrder })
         }
         catch(e){
             console.log(e)
@@ -33,11 +33,11 @@ export default async function handler(req, res) {
     else if(req.method === 'PUT'){
         await connect()
         
-        const updatePrice = await Product.findOneAndUpdate(
-            { _id: req.query.id }, // Filter by ID
-            { $set: {price: req.body.price} }, // Update the ispinned field to false
-            { new: true } // Return the updated document
-        );
+        const updatePrice = await Product.findByIdAndUpdate(
+            req.query.id , // Filter by ID
+            {price: req.body.price}, 
+            { new: true }
+        )
         res.status(200).json({ success: true, data:updatePrice })
     }
   }

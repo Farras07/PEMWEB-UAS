@@ -10,6 +10,7 @@ import Link from 'next/link';
 
 export default function ProductDetail({ product }) {
   const [choseSize, setChoseSize] = useState(false);
+  console.log(product)
   const [addItems,setAddItems] = useState(0)
   const refs = useRef([]);
   const refQuantity = useRef(null);
